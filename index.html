@@ -55,17 +55,19 @@
 
         <!-- Theme Switcher & Controls -->
         <div class="controls-bar">
-            <div class="theme-switcher">
-                <label for="theme-select">Theme:</label>
-                <select id="theme-select" class="retro-select">
-                    <option value="windows95">Windows 95</option>
-                    <option value="matrix">Matrix</option>
-                    <option value="sunset">Sunset</option>
-                    <option value="terminal">Terminal</option>
-                </select>
-            </div>
-            <div class="music-control">
-                <button id="music-toggle" class="retro-button">🎵 Music: OFF</button>
+            <div class="controls-row">
+                <div class="theme-switcher">
+                    <label for="theme-select">Theme:</label>
+                    <select id="theme-select" class="retro-select">
+                        <option value="windows95">Windows 95</option>
+                        <option value="matrix">Matrix</option>
+                        <option value="sunset">Sunset</option>
+                        <option value="terminal">Terminal</option>
+                    </select>
+                </div>
+                <div class="music-control">
+                    <button id="music-toggle" class="retro-button">🎵 Music: OFF</button>
+                </div>
             </div>
             <div class="hit-counter">
                 <span class="counter-label">Visitors:</span>
@@ -203,9 +205,7 @@
                 <div class="resume-download">
                     <p>📄 Download my complete resume in PDF format:</p>
                     <button class="download-button" onclick="downloadResume()">
-                        <img src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wjRLEuQRNnGt7QgdVkNd2rUZTDwjBFLHgkpXWZqpG7YaWvzgwEYoAlHjyJlUAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="
-                            alt="Download">
-                        DOWNLOAD RESUME.PDF
+                        📄 DOWNLOAD RESUME.PDF
                     </button>
                     <p class="file-info">📊 File Size: 245 KB | 📅 Last Updated: <span id="last-updated"></span></p>
                 </div>
@@ -422,7 +422,7 @@
 
         <!-- Footer -->
         <div class="footer">
-            <p>© 1995-2025 Karan Chauhan | Last Updated: <span id="footer-last-updated"></span></p>
+            <p>© 2005-2025 Karan Chauhan | Last Updated: <span id="footer-last-updated"></span></p>
             <div class="footer-marquee">
                 <marquee behavior="scroll" direction="left" scrollamount="2">
                     🌟 Thanks for visiting! Don't forget to sign the guestbook! 🌟

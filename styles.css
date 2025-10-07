@@ -490,18 +490,24 @@ body {
     width: 100%;
     background: #ffffff;
     border-collapse: collapse;
+    table-layout: fixed;
 }
 
 .skills-table td {
-    padding: 8px;
+    padding: 10px;
     border: 1px solid #000000;
     vertical-align: top;
+    word-wrap: break-word;
 }
 
 .skills-table td:first-child {
     background: #e0e0e0;
-    width: 30%;
+    width: 35%;
     font-weight: bold;
+}
+
+.skills-table td:last-child {
+    width: 65%;
 }
 
 /* Project Styles */
@@ -625,7 +631,7 @@ New 90s Features Styles */
 /* Controls Bar */
 .controls-bar {
     background: linear-gradient(90deg, #808080, #c0c0c0, #808080);
-    padding: 10px;
+    padding: 12px;
     border-bottom: 2px inset #c0c0c0;
     display: flex;
     justify-content: space-between;
@@ -634,7 +640,22 @@ New 90s Features Styles */
     gap: 15px;
 }
 
-.theme-switcher, .music-control, .hit-counter {
+.controls-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.theme-switcher, .music-control {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.hit-counter {
     display: flex;
     align-items: center;
     gap: 8px;
@@ -645,23 +666,27 @@ New 90s Features Styles */
 .retro-select {
     background: #ffffff;
     border: 2px inset #c0c0c0;
-    padding: 2px 5px;
+    padding: 4px 8px;
     font-family: "Times New Roman", serif;
-    font-size: 12px;
+    font-size: 13px;
+    min-width: 120px;
 }
 
 .retro-button {
     background: linear-gradient(45deg, #c0c0c0, #e0e0e0);
     border: 2px outset #c0c0c0;
-    padding: 4px 8px;
-    font-size: 11px;
+    padding: 6px 12px;
+    font-size: 12px;
     font-weight: bold;
     cursor: pointer;
     font-family: "Times New Roman", serif;
+    white-space: nowrap;
+    min-height: 32px;
 }
 
 .retro-button:hover {
     border: 2px inset #c0c0c0;
+    background: linear-gradient(45deg, #a0a0a0, #c0c0c0);
 }
 
 .counter-display {
@@ -703,24 +728,27 @@ New 90s Features Styles */
 }
 
 .download-button {
-    background: linear-gradient(45deg, #008000, #00ff00);
+    background: linear-gradient(45deg, #008000, #00cc00);
     color: #ffffff;
     border: 3px outset #008000;
     padding: 15px 25px;
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
-    margin: 15px 0;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
+    margin: 15px auto;
+    display: block;
+    text-align: center;
     font-family: "Times New Roman", serif;
     animation: download-pulse 2s infinite;
+    max-width: 300px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .download-button:hover {
     border: 3px inset #008000;
-    background: linear-gradient(45deg, #006000, #00cc00);
+    background: linear-gradient(45deg, #006000, #009900);
+    animation: none;
 }
 
 @keyframes download-pulse {
@@ -1044,19 +1072,38 @@ New 90s Features Styles */
     /* Controls bar - stack vertically */
     .controls-bar {
         flex-direction: column;
-        gap: 8px;
-        padding: 8px;
+        gap: 10px;
+        padding: 10px;
         text-align: center;
     }
     
-    .theme-switcher, .music-control, .hit-counter {
-        justify-content: center;
-        font-size: 11px;
+    .controls-row {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
     }
     
-    .retro-select, .retro-button {
-        font-size: 11px;
-        padding: 3px 6px;
+    .theme-switcher, .music-control {
+        justify-content: center;
+        font-size: 12px;
+        width: 100%;
+    }
+    
+    .hit-counter {
+        justify-content: center;
+        font-size: 12px;
+    }
+    
+    .retro-select {
+        font-size: 12px;
+        padding: 6px 10px;
+        min-width: 150px;
+    }
+    
+    .retro-button {
+        font-size: 12px;
+        padding: 8px 12px;
+        min-width: 150px;
     }
     
     /* Mobile Navigation */
@@ -1126,28 +1173,37 @@ New 90s Features Styles */
         margin: 8px 0;
     }
     
-    /* Skills table - stack vertically */
+    /* Skills table - better mobile layout */
     .skills-table {
-        font-size: 12px;
+        font-size: 13px;
+        border: 2px solid #000000;
     }
     
     .skills-table td {
-        padding: 6px;
+        padding: 8px;
         display: block;
         width: 100%;
-        border-bottom: 1px solid #000000;
+        border: none;
+        border-bottom: 1px solid #cccccc;
     }
     
     .skills-table tr {
         display: block;
-        margin-bottom: 8px;
+        margin-bottom: 12px;
         border: 1px solid #000000;
+        background: #ffffff;
     }
     
     .skills-table td:first-child {
         background: #e0e0e0;
         font-weight: bold;
-        border-bottom: 1px solid #000000;
+        border-bottom: 2px solid #000000;
+        margin-bottom: 4px;
+    }
+    
+    .skills-table td:last-child {
+        background: #f9f9f9;
+        border-bottom: none;
     }
     
     /* Projects */
@@ -1203,10 +1259,26 @@ New 90s Features Styles */
     }
     
     .controls-bar {
-        flex-wrap: wrap;
+        flex-direction: column;
+        gap: 12px;
+        padding: 12px;
+        text-align: center;
+    }
+    
+    .controls-row {
+        flex-direction: row;
         justify-content: center;
-        gap: 10px;
-        padding: 10px;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+    
+    .theme-switcher, .music-control {
+        font-size: 13px;
+    }
+    
+    .retro-select, .retro-button {
+        font-size: 13px;
+        padding: 6px 10px;
     }
     
     .nav-bar {
