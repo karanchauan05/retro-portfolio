@@ -76,11 +76,10 @@
             <a href="#education" class="nav-link">EDUCATION</a>
             <a href="#skills" class="nav-link">SKILLS</a>
             <a href="#projects" class="nav-link">PROJECTS</a>
-            <a href="#honors" class="nav-link">HONORS</a>
             <a href="#resume" class="nav-link">RESUME</a>
 
             <a href="#contact" class="nav-link">CONTACT</a>
-            <a href="#guestbook" class="nav-link">GUESTBOOK</a>
+
         </div>
 
         <!-- About Section -->
@@ -88,7 +87,7 @@
             <h2 class="section-title">ABOUT ME</h2>
             <div class="content-box">
                 <p>Welcome to my digital portfolio! I'm a passionate Computer Science Engineering student at Parul
-                    University with a strong CGPA of 6.9. I love creating innovative applications and exploring new
+                    University with a CGPA of 6.9. I love creating innovative applications and exploring new
                     technologies.</p>
                 <img src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wjRLEuQRNnGt7QgdVkNd2rUZTDwjBFLHgkpXWZqpG7YaWvzgwEYoAlHjyJlUAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="
                     alt="Loading..." class="loading-gif">
@@ -234,44 +233,81 @@
         <div id="contact" class="section">
             <h2 class="section-title">CONTACT FORM</h2>
             <div class="content-box">
-                <form class="contact-form" onsubmit="submitContactForm(event)">
+                <div class="contact-intro">
+                    <p>📬 Get in touch! I'd love to hear from you about projects, opportunities, or just to say hello.
+                    </p>
+                    <div class="contact-methods">
+                        <p><strong>Prefer direct contact?</strong></p>
+                        <p>📧 Email: <a href="mailto:chauhankaran2305@gmail.com">chauhankaran2305@gmail.com</a></p>
+                        <p>📱 WhatsApp: <a href="https://wa.me/918347202650" target="_blank">+91 8347202650</a></p>
+                    </div>
+                </div>
+
+                <form class="contact-form" onsubmit="submitContactForm(event)" id="contact-form">
+                    <div id="form-status" class="form-status" style="display: none;"></div>
+
                     <table class="form-table">
                         <tr>
-                            <td><label for="name">Name:</label></td>
-                            <td><input type="text" id="name" name="name" class="retro-input" required></td>
-                        </tr>
-                        <tr>
-                            <td><label for="email">Email:</label></td>
-                            <td><input type="email" id="email" name="email" class="retro-input" required></td>
-                        </tr>
-                        <tr>
-                            <td><label for="subject">Subject:</label></td>
+                            <td><label for="name">Name: <span class="required">*</span></label></td>
                             <td>
-                                <select id="subject" name="subject" class="retro-select">
-                                    <option value="general">General Inquiry</option>
-                                    <option value="project">Project Collaboration</option>
-                                    <option value="job">Job Opportunity</option>
-                                    <option value="other">Other</option>
+                                <input type="text" id="name" name="name" class="retro-input" required minlength="2"
+                                    maxlength="50" placeholder="Your full name">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label for="email">Email: <span class="required">*</span></label></td>
+                            <td>
+                                <input type="email" id="email" name="email" class="retro-input" required
+                                    placeholder="your.email@example.com">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label for="subject">Subject: <span class="required">*</span></label></td>
+                            <td>
+                                <select id="subject" name="subject" class="retro-select" required>
+                                    <option value="">-- Select a subject --</option>
+                                    <option value="General Inquiry">General Inquiry</option>
+                                    <option value="Project Collaboration">Project Collaboration</option>
+                                    <option value="Job Opportunity">Job Opportunity</option>
+                                    <option value="Freelance Work">Freelance Work</option>
+                                    <option value="Technical Question">Technical Question</option>
+                                    <option value="Other">Other</option>
                                 </select>
                             </td>
                         </tr>
                         <tr>
-                            <td><label for="message">Message:</label></td>
-                            <td><textarea id="message" name="message" class="retro-textarea" rows="5"
-                                    required></textarea></td>
+                            <td><label for="message">Message: <span class="required">*</span></label></td>
+                            <td>
+                                <textarea id="message" name="message" class="retro-textarea" rows="6" required
+                                    minlength="10" maxlength="1000"
+                                    placeholder="Tell me about your project, question, or how I can help you..."></textarea>
+                                <div class="char-counter">
+                                    <span id="char-count">0</span>/1000 characters
+                                </div>
+                            </td>
                         </tr>
                         <tr>
                             <td colspan="2" style="text-align: center; padding-top: 15px;">
-                                <button type="submit" class="submit-button">SEND MESSAGE</button>
-                                <button type="reset" class="reset-button">CLEAR FORM</button>
+                                <button type="submit" class="submit-button" id="submit-btn">
+                                    📧 SEND MESSAGE
+                                </button>
+                                <button type="reset" class="reset-button" onclick="resetForm()">
+                                    🗑️ CLEAR FORM
+                                </button>
                             </td>
                         </tr>
                     </table>
+
+                    <div class="form-footer">
+                        <p><span class="required">*</span> Required fields</p>
+                        <p>🔒 Your information is secure and will only be used to respond to your message.</p>
+                    </div>
                 </form>
             </div>
         </div>
 
         <!-- Guestbook Section -->
+        <!-- 
         <div id="guestbook" class="section">
             <h2 class="section-title">GUESTBOOK</h2>
             <div class="content-box">
@@ -327,6 +363,7 @@
                 </div>
             </div>
         </div>
+        -->
 
         <!-- Site Map -->
         <div class="sitemap">
@@ -347,9 +384,7 @@
                             </li>
                             <li>📄 <a href="#honors">Honors & Awards</a></li>
                             <li>📄 <a href="#resume">Resume Download</a></li>
-                            <li>📄 <a href="#gallery">Photo Gallery</a></li>
                             <li>📄 <a href="#contact">Contact Form</a></li>
-                            <li>📄 <a href="#guestbook">Guestbook</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -456,6 +491,7 @@
             initializeMusicControl();
             initializeInteractiveEffects();
             initializeAccessibility();
+            initializeContactForm();
         });
 
         // Hit counter functionality
@@ -605,8 +641,219 @@
             const formData = new FormData(event.target);
             const data = Object.fromEntries(formData);
 
-            alert(`📧 Message sent successfully!\n\nThank you ${data.name}! I'll get back to you soon.\n\n(This is a demo - in real implementation, this would send an actual email)`);
-            event.target.reset();
+            // Show loading state
+            const submitButton = event.target.querySelector('.submit-button');
+            const originalText = submitButton.textContent;
+            submitButton.textContent = 'SENDING...';
+            submitButton.disabled = true;
+
+            // Try multiple methods to send the email
+            sendEmailViaFormspree(data)
+                .then(() => {
+                    alert(`📧 Message sent successfully!\n\nThank you ${data.name}! I'll get back to you soon.`);
+                    event.target.reset();
+                })
+                .catch(() => {
+                    // Fallback to mailto if Formspree fails
+                    sendEmailViaMailto(data);
+                })
+                .finally(() => {
+                    // Reset button state
+                    submitButton.textContent = originalText;
+                    submitButton.disabled = false;
+                });
+        }
+
+        // Method 1: Formspree (recommended for static sites)
+        async function sendEmailViaFormspree(data) {
+            const formspreeEndpoint = 'https://formspree.io/f/mgvnlwnk'; // Replace with your Formspree form ID
+
+            const response = await fetch(formspreeEndpoint, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    name: data.name,
+                    email: data.email,
+                    subject: data.subject,
+                    message: data.message,
+                    _replyto: data.email,
+                    _subject: `Portfolio Contact: ${data.subject}`
+                })
+            });
+
+            if (!response.ok) {
+                throw new Error('Formspree failed');
+            }
+
+            return response.json();
+        }
+
+        // Method 2: Mailto fallback
+        function sendEmailViaMailto(data) {
+            const subject = encodeURIComponent(`Portfolio Contact: ${data.subject}`);
+            const body = encodeURIComponent(
+                `Name: ${data.name}\n` +
+                `Email: ${data.email}\n` +
+                `Subject: ${data.subject}\n\n` +
+                `Message:\n${data.message}\n\n` +
+                `---\nSent from Karan's Portfolio Website`
+            );
+
+            const mailtoLink = `mailto:chauhankaran2305@gmail.com?subject=${subject}&body=${body}`;
+
+            // Open default email client
+            window.location.href = mailtoLink;
+
+            alert(`📧 Opening your email client...\n\nIf your email client doesn't open automatically, please send an email to:\nchauhankaran2305@gmail.com`);
+        }
+
+        // Method 3: EmailJS (alternative client-side solution)
+        function sendEmailViaEmailJS(data) {
+            // Requires EmailJS library to be loaded
+            if (typeof emailjs !== 'undefined') {
+                return emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', {
+                    from_name: data.name,
+                    from_email: data.email,
+                    subject: data.subject,
+                    message: data.message,
+                    to_email: 'chauhankaran2305@gmail.com'
+                });
+            } else {
+                throw new Error('EmailJS not loaded');
+            }
+        }
+
+        // Enhanced form validation and UI
+        function initializeContactForm() {
+            const messageTextarea = document.getElementById('message');
+            const charCount = document.getElementById('char-count');
+            const form = document.getElementById('contact-form');
+
+            // Character counter for message field
+            if (messageTextarea && charCount) {
+                messageTextarea.addEventListener('input', function () {
+                    const count = this.value.length;
+                    charCount.textContent = count;
+
+                    // Change color based on character count
+                    if (count > 900) {
+                        charCount.style.color = '#ff0000';
+                    } else if (count > 700) {
+                        charCount.style.color = '#ff6600';
+                    } else {
+                        charCount.style.color = '#666666';
+                    }
+                });
+            }
+
+            // Real-time validation feedback
+            const inputs = form.querySelectorAll('input, select, textarea');
+            inputs.forEach(input => {
+                input.addEventListener('blur', validateField);
+                input.addEventListener('input', clearFieldError);
+            });
+        }
+
+        function validateField(event) {
+            const field = event.target;
+            const value = field.value.trim();
+
+            // Remove existing error styling
+            field.classList.remove('field-error');
+
+            // Validate based on field type
+            let isValid = true;
+            let errorMessage = '';
+
+            if (field.hasAttribute('required') && !value) {
+                isValid = false;
+                errorMessage = 'This field is required';
+            } else if (field.type === 'email' && value && !isValidEmail(value)) {
+                isValid = false;
+                errorMessage = 'Please enter a valid email address';
+            } else if (field.name === 'name' && value && value.length < 2) {
+                isValid = false;
+                errorMessage = 'Name must be at least 2 characters';
+            } else if (field.name === 'message' && value && value.length < 10) {
+                isValid = false;
+                errorMessage = 'Message must be at least 10 characters';
+            }
+
+            if (!isValid) {
+                field.classList.add('field-error');
+                showFieldError(field, errorMessage);
+            }
+
+            return isValid;
+        }
+
+        function clearFieldError(event) {
+            const field = event.target;
+            field.classList.remove('field-error');
+            hideFieldError(field);
+        }
+
+        function showFieldError(field, message) {
+            hideFieldError(field); // Remove existing error
+
+            const errorDiv = document.createElement('div');
+            errorDiv.className = 'field-error-message';
+            errorDiv.textContent = message;
+
+            field.parentNode.appendChild(errorDiv);
+        }
+
+        function hideFieldError(field) {
+            const existingError = field.parentNode.querySelector('.field-error-message');
+            if (existingError) {
+                existingError.remove();
+            }
+        }
+
+        function isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        function showFormStatus(message, type = 'info') {
+            const statusDiv = document.getElementById('form-status');
+            statusDiv.textContent = message;
+            statusDiv.className = `form-status ${type}`;
+            statusDiv.style.display = 'block';
+
+            // Auto-hide after 5 seconds for success messages
+            if (type === 'success') {
+                setTimeout(() => {
+                    statusDiv.style.display = 'none';
+                }, 5000);
+            }
+        }
+
+        function resetForm() {
+            const form = document.getElementById('contact-form');
+            form.reset();
+
+            // Reset character counter
+            const charCount = document.getElementById('char-count');
+            if (charCount) {
+                charCount.textContent = '0';
+                charCount.style.color = '#666666';
+            }
+
+            // Clear any error messages
+            const errorMessages = form.querySelectorAll('.field-error-message');
+            errorMessages.forEach(error => error.remove());
+
+            // Clear error styling
+            const errorFields = form.querySelectorAll('.field-error');
+            errorFields.forEach(field => field.classList.remove('field-error'));
+
+            // Hide status message
+            document.getElementById('form-status').style.display = 'none';
+
+            showFormStatus('Form cleared successfully!', 'success');
         }
 
         // Guestbook functionality
