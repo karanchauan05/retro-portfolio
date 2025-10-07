@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Karan Chauhan - Computer Science Engineer</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-container">
+            <div class="loading-title">LOADING KARAN'S PORTFOLIO...</div>
+            <div class="loading-bar-container">
+                <div class="loading-bar" id="loading-bar"></div>
+            </div>
+            <div class="loading-text" id="loading-text">Initializing...</div>
+            <div class="loading-dots">
+                <span class="dot">●</span>
+                <span class="dot">●</span>
+                <span class="dot">●</span>
+                <span class="dot">●</span>
+                <span class="dot">●</span>
+            </div>
+            <div class="system-info">
+                <p>System: Windows 95 Compatible</p>
+                <p>Browser: Netscape Navigator 4.0</p>
+                <p>Resolution: 800x600</p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <!-- Header with animated text -->
+        <div class="header">
+            <div class="header-decoration">★ ✦ ★ ✦ ★ ✦ ★ ✦ ★ ✦ ★</div>
+            <h1 class="animated-title">KARAN CHAUHAN</h1>
+            <div class="subtitle">Computer Science Engineering Student</div>
+            <div class="header-decoration">✦ ★ ✦ ★ ✦ ★ ✦ ★ ✦ ★ ✦</div>
+            <div class="contact-info">
+                <marquee behavior="scroll" direction="left" scrollamount="3">
+                    📧 <a href="mailto:chauhankaran2305@gmail.com" class="contact-link">chauhankaran2305@gmail.com</a> |
+                    📞 <a href="tel:+918347202650" class="contact-link">8347202650</a> |
+                    💻 <a href="https://github.com/karanchauan05" class="contact-link">GitHub</a> |
+                    🔗 <a href="https://www.linkedin.com/in/karan-chauhan-296612265/" class="contact-link">LinkedIn</a>
+                    |
+                    📍 Vadodara, Gujarat
+                </marquee>
+            </div>
+
+        </div>
+
+        <!-- Theme Switcher & Controls -->
+        <div class="controls-bar">
+            <div class="theme-switcher">
+                <label for="theme-select">Theme:</label>
+                <select id="theme-select" class="retro-select">
+                    <option value="windows95">Windows 95</option>
+                    <option value="matrix">Matrix</option>
+                    <option value="sunset">Sunset</option>
+                    <option value="terminal">Terminal</option>
+                </select>
+            </div>
+            <div class="music-control">
+                <button id="music-toggle" class="retro-button">🎵 Music: OFF</button>
+            </div>
+            <div class="hit-counter">
+                <span class="counter-label">Visitors:</span>
+                <span id="hit-count" class="counter-display">001337</span>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="nav-bar">
+            <a href="#about" class="nav-link">ABOUT</a>
+            <a href="#education" class="nav-link">EDUCATION</a>
+            <a href="#skills" class="nav-link">SKILLS</a>
+            <a href="#projects" class="nav-link">PROJECTS</a>
+            <a href="#honors" class="nav-link">HONORS</a>
+            <a href="#resume" class="nav-link">RESUME</a>
+            <a href="#gallery" class="nav-link">GALLERY</a>
+            <a href="#contact" class="nav-link">CONTACT</a>
+            <a href="#guestbook" class="nav-link">GUESTBOOK</a>
+        </div>
+
+        <!-- About Section -->
+        <div id="about" class="section">
+            <h2 class="section-title">ABOUT ME</h2>
+            <div class="content-box">
+                <p>Welcome to my digital portfolio! I'm a passionate Computer Science Engineering student at Parul
+                    University with a strong CGPA of 6.9. I love creating innovative applications and exploring new
+                    technologies.</p>
+                <img src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wjRLEuQRNnGt7QgdVkNd2rUZTDwjBFLHgkpXWZqpG7YaWvzgwEYoAlHjyJlUAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="
+                    alt="Loading..." class="loading-gif">
+            </div>
+        </div>
+
+        <!-- Education Section -->
+        <div id="education" class="section">
+            <h2 class="section-title">EDUCATION</h2>
+            <div class="content-box">
+                <div class="education-item">
+                    <h3>🎓 Parul University</h3>
+                    <p><strong>Computer Science Engineering Bachelors</strong></p>
+                    <p>📅 June 2022 - April 2026 | 📍 Vadodara, Gujarat</p>
+                    <p><strong>CGPA: 6.9</strong></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Skills Section -->
+        <div id="skills" class="section">
+            <h2 class="section-title">TECHNICAL SKILLS</h2>
+            <div class="content-box">
+                <table class="skills-table" border="1" cellpadding="5" cellspacing="0">
+                    <tr>
+                        <td><strong>Programming Languages:</strong></td>
+                        <td>Java, Python, JavaScript, GDScript</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Libraries/Frameworks:</strong></td>
+                        <td>React, Flask</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tools/Platforms:</strong></td>
+                        <td>Git, GitHub, VS Code</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Databases:</strong></td>
+                        <td>MongoDB, MySQL</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- Projects Section -->
+        <div id="projects" class="section">
+            <h2 class="section-title">PROJECTS & OPEN-SOURCE</h2>
+
+            <div class="project-item">
+                <h3>📱 Event Tracking App | <a href="https://github.com/karanchauan05/Event-Tracking-App-Bhajiyu"
+                        class="project-link">Link</a></h3>
+                <p class="tech-stack">Android Studio, Kotlin, Firebase</p>
+                <ul>
+                    <li>Built using Android Studio with Kotlin, implementing Firebase Authentication for secure user
+                        login and signup.</li>
+                    <li>Integrated Navigation Drawer Activity with multiple fragments for a structured and intuitive UI
+                        layout.</li>
+                    <li>Enables users to create and join themed event rooms, with event-specific screens and floating
+                        action buttons for adding events.</li>
+                </ul>
+            </div>
+
+            <div class="project-item">
+                <h3>🎮 Retro Games Collection | <a href="https://github.com/karanchauan05/retro-games "
+                        class="project-link">Link</a></h3>
+                <p class="tech-stack">HTML, CSS, JavaScript</p>
+                <ul>
+                    <li>Developed classic browser games (Snakes, Race car, Pong) using HTML, CSS, Phaser.js and
+                        JavaScript, showcasing game logic and responsive UI design.</li>
+                    <li>Added unique game mechanics to make them challenging and engaging.</li>
+                </ul>
+            </div>
+
+            <div class="project-item">
+                <h3>🗺️ Central Perk</h3>
+                <p class="tech-stack">JavaScript, Flask</p>
+                <ul>
+                    <li>Built a responsive web application that helps groups of friends find the optimal central meeting
+                        spot based on their addresses.</li>
+                    <li>Developed the frontend using HTML, CSS and JavaScript with a clean, mobile-friendly layout.</li>
+                    <li>Implemented a Python Flask backend to process address input, calculating geographical midpoints,
+                        and fetch nearby venues using Google Maps API.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Honors Section -->
+        <div id="honors" class="section">
+            <h2 class="section-title">HONORS & AWARDS</h2>
+            <div class="content-box">
+                <div class="award-item">
+                    <h3>🏆 Hackathon Winner <span class="new-badge">NEW!</span></h3>
+                    <p>Won The Graph-powered on-campus hackathon and bootcamp hosted at Parul University, organized in
+                        collaboration with The Graph Co.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Resume Section -->
+        <div id="resume" class="section">
+            <h2 class="section-title">RESUME / CV</h2>
+            <div class="content-box">
+                <div class="resume-download">
+                    <p>📄 Download my complete resume in PDF format:</p>
+                    <button class="download-button" onclick="downloadResume()">
+                        <img src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wjRLEuQRNnGt7QgdVkNd2rUZTDwjBFLHgkpXWZqpG7YaWvzgwEYoAlHjyJlUAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="
+                            alt="Download">
+                        DOWNLOAD RESUME.PDF
+                    </button>
+                    <p class="file-info">📊 File Size: 245 KB | 📅 Last Updated: <span id="last-updated"></span></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Photo Gallery Section -->
+        <div id="gallery" class="section">
+            <h2 class="section-title">PHOTO GALLERY</h2>
+            <div class="content-box">
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <div class="placeholder-image">📸 Project Screenshot 1</div>
+                        <p>Event Tracking App UI</p>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="placeholder-image">📸 Project Screenshot 2</div>
+                        <p>Retro Games Collection</p>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="placeholder-image">📸 Hackathon Photo</div>
+                        <p>Graph Hackathon Winner</p>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="placeholder-image">📸 University Photo</div>
+                        <p>Parul University Campus</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Form Section -->
+        <div id="contact" class="section">
+            <h2 class="section-title">CONTACT FORM</h2>
+            <div class="content-box">
+                <form class="contact-form" onsubmit="submitContactForm(event)">
+                    <table class="form-table">
+                        <tr>
+                            <td><label for="name">Name:</label></td>
+                            <td><input type="text" id="name" name="name" class="retro-input" required></td>
+                        </tr>
+                        <tr>
+                            <td><label for="email">Email:</label></td>
+                            <td><input type="email" id="email" name="email" class="retro-input" required></td>
+                        </tr>
+                        <tr>
+                            <td><label for="subject">Subject:</label></td>
+                            <td>
+                                <select id="subject" name="subject" class="retro-select">
+                                    <option value="general">General Inquiry</option>
+                                    <option value="project">Project Collaboration</option>
+                                    <option value="job">Job Opportunity</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label for="message">Message:</label></td>
+                            <td><textarea id="message" name="message" class="retro-textarea" rows="5"
+                                    required></textarea></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" style="text-align: center; padding-top: 15px;">
+                                <button type="submit" class="submit-button">SEND MESSAGE</button>
+                                <button type="reset" class="reset-button">CLEAR FORM</button>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+
+        <!-- Guestbook Section -->
+        <div id="guestbook" class="section">
+            <h2 class="section-title">GUESTBOOK</h2>
+            <div class="content-box">
+                <div class="guestbook-intro">
+                    <marquee behavior="scroll" direction="right" scrollamount="2">
+                        ✨ Sign my guestbook! Leave a message for other visitors to see! ✨
+                    </marquee>
+                </div>
+
+                <div class="guestbook-form">
+                    <h3>📝 Sign the Guestbook:</h3>
+                    <form onsubmit="addGuestbookEntry(event)">
+                        <table class="form-table">
+                            <tr>
+                                <td><label for="guest-name">Name:</label></td>
+                                <td><input type="text" id="guest-name" class="retro-input" required></td>
+                            </tr>
+                            <tr>
+                                <td><label for="guest-location">Location:</label></td>
+                                <td><input type="text" id="guest-location" class="retro-input"></td>
+                            </tr>
+                            <tr>
+                                <td><label for="guest-message">Message:</label></td>
+                                <td><textarea id="guest-message" class="retro-textarea" rows="3" required></textarea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" style="text-align: center;">
+                                    <button type="submit" class="submit-button">SIGN GUESTBOOK</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+
+                <div class="guestbook-entries" id="guestbook-entries">
+                    <h3>📖 Recent Entries:</h3>
+                    <div class="guestbook-entry">
+                        <div class="entry-header">
+                            <strong>WebMaster2000</strong> from <em>Cyberspace</em>
+                            <span class="entry-date">Dec 25, 2024 - 11:59 PM</span>
+                        </div>
+                        <div class="entry-message">Cool portfolio! Love the retro 90s vibe! 🔥</div>
+                    </div>
+                    <div class="guestbook-entry">
+                        <div class="entry-header">
+                            <strong>CodeNinja95</strong> from <em>Silicon Valley</em>
+                            <span class="entry-date">Dec 24, 2024 - 3:14 PM</span>
+                        </div>
+                        <div class="entry-message">Awesome projects! The Event Tracking App looks really professional.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Site Map -->
+        <div class="sitemap">
+            <h3>🗺️ SITE MAP</h3>
+            <div class="sitemap-tree">
+                <ul>
+                    <li>📁 Karan's Portfolio
+                        <ul>
+                            <li>📄 <a href="#about">About Me</a></li>
+                            <li>📄 <a href="#education">Education</a></li>
+                            <li>📄 <a href="#skills">Technical Skills</a></li>
+                            <li>📁 Projects
+                                <ul>
+                                    <li>📄 Event Tracking App</li>
+                                    <li>📄 Retro Games Collection</li>
+                                    <li>📄 Central Perk</li>
+                                </ul>
+                            </li>
+                            <li>📄 <a href="#honors">Honors & Awards</a></li>
+                            <li>📄 <a href="#resume">Resume Download</a></li>
+                            <li>📄 <a href="#gallery">Photo Gallery</a></li>
+                            <li>📄 <a href="#contact">Contact Form</a></li>
+                            <li>📄 <a href="#guestbook">Guestbook</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Browser Compatibility Badges -->
+        <div class="compatibility-badges">
+            <div class="badge-row">
+                <img src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wjRLEuQRNnGt7QgdVkNd2rUZTDwjBFLHgkpXWZqpG7YaWvzgwEYoAlHjyJlUAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="
+                    alt="Best viewed with" class="badge">
+                <span class="badge-text">Best viewed with Netscape Navigator 4.0+</span>
+            </div>
+            <div class="badge-row">
+                <img src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wjRLEuQRNnGt7QgdVkNd2rUZTDwjBFLHgkpXWZqpG7YaWvzgwEYoAlHjyJlUAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="
+                    alt="Optimized for" class="badge">
+                <span class="badge-text">Optimized for 800x600 resolution</span>
+            </div>
+            <div class="badge-row">
+                <img src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wjRLEuQRNnGt7QgdVkNd2rUZTDwjBFLHgkpXWZqpG7YaWvzgwEYoAlHjyJlUAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="
+                    alt="Made with" class="badge">
+                <span class="badge-text">Made with ❤️ and HTML</span>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>© 1995-2025 Karan Chauhan | Last Updated: <span id="footer-last-updated"></span></p>
+            <div class="footer-marquee">
+                <marquee behavior="scroll" direction="left" scrollamount="2">
+                    🌟 Thanks for visiting! Don't forget to sign the guestbook! 🌟
+                </marquee>
+            </div>
+        </div>
+
+        <!-- Hidden audio element for background music -->
+        <audio id="background-music" loop volume="0.3">
+            <!-- Mellow ambient track - soft piano and nature sounds -->
+            <source src="https://www.soundjay.com/misc/sounds/bell-ringing-05.wav" type="audio/wav">
+            <!-- Fallback to a generated mellow tone -->
+            <source src="data:audio/wav;base64,UklGRiQEAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAEAAA=" type="audio/wav">
+        </audio>
+    </div>
+
+    <script>
+        // Global variables
+        let hitCount = parseInt(localStorage.getItem('hitCount') || '1337');
+        let musicPlaying = false;
+        const backgroundMusic = document.getElementById('background-music');
+
+        // Loading animation script
+        window.addEventListener('load', function () {
+            const loadingScreen = document.getElementById('loading-screen');
+            const loadingBar = document.getElementById('loading-bar');
+            const loadingText = document.getElementById('loading-text');
+
+            const loadingMessages = [
+                'Initializing...',
+                'Loading HTML files...',
+                'Parsing CSS stylesheets...',
+                'Connecting to server...',
+                'Loading portfolio data...',
+                'Rendering graphics...',
+                'Almost ready...',
+                'Welcome to the web!'
+            ];
+
+            let progress = 0;
+            let messageIndex = 0;
+
+            const loadingInterval = setInterval(() => {
+                progress += Math.random() * 15 + 5;
+
+                if (progress >= 100) {
+                    progress = 100;
+                    loadingBar.style.width = '100%';
+                    loadingText.textContent = 'Complete!';
+
+                    setTimeout(() => {
+                        loadingScreen.style.opacity = '0';
+                        setTimeout(() => {
+                            loadingScreen.style.display = 'none';
+                        }, 500);
+                    }, 800);
+
+                    clearInterval(loadingInterval);
+                } else {
+                    loadingBar.style.width = progress + '%';
+
+                    if (messageIndex < loadingMessages.length - 1) {
+                        messageIndex = Math.floor((progress / 100) * loadingMessages.length);
+                        loadingText.textContent = loadingMessages[messageIndex];
+                    }
+                }
+            }, 200);
+        });
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function () {
+            initializeHitCounter();
+            initializeLastUpdated();
+            initializeThemeSwitcher();
+            initializeMusicControl();
+            initializeInteractiveEffects();
+            initializeAccessibility();
+        });
+
+        // Hit counter functionality
+        function initializeHitCounter() {
+            hitCount++;
+            localStorage.setItem('hitCount', hitCount.toString());
+            document.getElementById('hit-count').textContent = hitCount.toString().padStart(6, '0');
+
+            // Animate counter
+            const counter = document.getElementById('hit-count');
+            counter.style.animation = 'counter-increment 0.5s ease';
+        }
+
+        // Last updated timestamp
+        function initializeLastUpdated() {
+            const now = new Date();
+            const dateStr = now.toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'short',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+            document.getElementById('last-updated').textContent = dateStr;
+            document.getElementById('footer-last-updated').textContent = dateStr;
+        }
+
+        // Theme switcher
+        function initializeThemeSwitcher() {
+            const themeSelect = document.getElementById('theme-select');
+            const savedTheme = localStorage.getItem('selectedTheme') || 'windows95';
+            themeSelect.value = savedTheme;
+            applyTheme(savedTheme);
+
+            themeSelect.addEventListener('change', function () {
+                const theme = this.value;
+                applyTheme(theme);
+                localStorage.setItem('selectedTheme', theme);
+            });
+        }
+
+        function applyTheme(theme) {
+            document.body.className = theme + '-theme';
+        }
+
+        // Music control
+        function initializeMusicControl() {
+            const musicToggle = document.getElementById('music-toggle');
+            musicToggle.addEventListener('click', function () {
+                if (musicPlaying) {
+                    backgroundMusic.pause();
+                    this.textContent = '🎵 Music: OFF';
+                    musicPlaying = false;
+                } else {
+                    backgroundMusic.play().catch(e => {
+                        alert('Music playback failed. Browser may require user interaction first.');
+                    });
+                    this.textContent = '🎵 Music: ON';
+                    musicPlaying = true;
+                }
+            });
+        }
+
+        // Interactive effects
+        function initializeInteractiveEffects() {
+            // Navigation button effects
+            const buttons = document.querySelectorAll('.nav-link, .retro-button, .submit-button, .reset-button, .download-button');
+            buttons.forEach(button => {
+                button.addEventListener('click', function (e) {
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1)';
+                    }, 100);
+                });
+            });
+
+            // Typing effect for title
+            setTimeout(() => {
+                const title = document.querySelector('.animated-title');
+                if (title) {
+                    title.classList.add('typing-effect');
+                }
+            }, 3000);
+
+            // Phone number functionality
+            const phoneLinks = document.querySelectorAll('a[href^="tel:"]');
+            phoneLinks.forEach(link => {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const phoneNumber = this.href.replace('tel:', '');
+                    const choice = confirm('Choose contact method:\nOK = WhatsApp\nCancel = Phone Call');
+
+                    if (choice) {
+                        window.open(`https://wa.me/${phoneNumber}`, '_blank');
+                    } else {
+                        window.location.href = this.href;
+                    }
+                });
+            });
+        }
+
+        // Accessibility features
+        function initializeAccessibility() {
+            // Add keyboard navigation
+            document.addEventListener('keydown', function (e) {
+                if (e.altKey && e.key >= '1' && e.key <= '9') {
+                    const navLinks = document.querySelectorAll('.nav-link');
+                    const index = parseInt(e.key) - 1;
+                    if (navLinks[index]) {
+                        navLinks[index].click();
+                    }
+                }
+            });
+
+            // Add focus indicators
+            const focusableElements = document.querySelectorAll('a, button, input, select, textarea');
+            focusableElements.forEach(element => {
+                element.addEventListener('focus', function () {
+                    this.style.outline = '2px solid #ffff00';
+                });
+                element.addEventListener('blur', function () {
+                    this.style.outline = '';
+                });
+            });
+        }
+
+        // Resume download function
+        function downloadResume() {
+            // Simulate PDF download
+            alert('📄 Resume download started!\n\nNote: This is a demo. In a real implementation, this would download your actual PDF resume.');
+
+            // In real implementation, you would use:
+            // window.open('path/to/your/resume.pdf', '_blank');
+        }
+
+        // Contact form submission
+        function submitContactForm(event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData);
+
+            alert(`📧 Message sent successfully!\n\nThank you ${data.name}! I'll get back to you soon.\n\n(This is a demo - in real implementation, this would send an actual email)`);
+            event.target.reset();
+        }
+
+        // Guestbook functionality
+        function addGuestbookEntry(event) {
+            event.preventDefault();
+            const name = document.getElementById('guest-name').value;
+            const location = document.getElementById('guest-location').value;
+            const message = document.getElementById('guest-message').value;
+
+            const entriesContainer = document.getElementById('guestbook-entries');
+            const newEntry = document.createElement('div');
+            newEntry.className = 'guestbook-entry';
+
+            const now = new Date();
+            const dateStr = now.toLocaleDateString('en-US', {
+                month: 'short',
+                day: 'numeric',
+                year: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+
+            newEntry.innerHTML = `
+                <div class="entry-header">
+                    <strong>${name}</strong> ${location ? `from <em>${location}</em>` : ''}
+                    <span class="entry-date">${dateStr}</span>
+                </div>
+                <div class="entry-message">${message}</div>
+            `;
+
+            // Insert after the "Recent Entries" heading
+            const heading = entriesContainer.querySelector('h3');
+            heading.insertAdjacentElement('afterend', newEntry);
+
+            // Clear form
+            event.target.reset();
+
+            alert('📝 Thank you for signing the guestbook!');
+        }
+
+        // Performance optimization - lazy loading for images
+        function initializeLazyLoading() {
+            const images = document.querySelectorAll('img[data-src]');
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        img.removeAttribute('data-src');
+                        imageObserver.unobserve(img);
+                    }
+                });
+            });
+
+            images.forEach(img => imageObserver.observe(img));
+        }
+
+        // Mobile responsiveness check
+        function checkMobileDevice() {
+            const isMobile = window.innerWidth <= 768;
+            if (isMobile) {
+                document.body.classList.add('mobile-device');
+                // Disable some animations on mobile for better performance
+                const animatedElements = document.querySelectorAll('.animated-title, .header-decoration');
+                animatedElements.forEach(el => {
+                    el.style.animation = 'none';
+                });
+            }
+        }
+
+        // Initialize mobile check
+        window.addEventListener('resize', checkMobileDevice);
+        checkMobileDevice();
+    </script>
+</body>
+
+</html>
