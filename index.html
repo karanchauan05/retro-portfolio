@@ -4,6 +4,9 @@
 <head>
     <title>Karan Chauhan - Computer Science Engineer</title>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Karan Chauhan - Computer Science Engineering Student Portfolio. Projects, skills, and contact information.">
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 
@@ -72,14 +75,21 @@
 
         <!-- Navigation -->
         <div class="nav-bar">
-            <a href="#about" class="nav-link">ABOUT</a>
-            <a href="#education" class="nav-link">EDUCATION</a>
-            <a href="#skills" class="nav-link">SKILLS</a>
-            <a href="#projects" class="nav-link">PROJECTS</a>
-            <a href="#resume" class="nav-link">RESUME</a>
-
-            <a href="#contact" class="nav-link">CONTACT</a>
-
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                MENU
+            </button>
+            <div class="nav-links" id="nav-links">
+                <a href="#about" class="nav-link" onclick="closeMobileMenu()">ABOUT</a>
+                <a href="#education" class="nav-link" onclick="closeMobileMenu()">EDUCATION</a>
+                <a href="#skills" class="nav-link" onclick="closeMobileMenu()">SKILLS</a>
+                <a href="#projects" class="nav-link" onclick="closeMobileMenu()">PROJECTS</a>
+                <a href="#honors" class="nav-link" onclick="closeMobileMenu()">HONORS</a>
+                <a href="#resume" class="nav-link" onclick="closeMobileMenu()">RESUME</a>
+                <a href="#contact" class="nav-link" onclick="closeMobileMenu()">CONTACT</a>
+            </div>
         </div>
 
         <!-- About Section -->
@@ -855,6 +865,64 @@
 
             showFormStatus('Form cleared successfully!', 'success');
         }
+
+        // Mobile menu functionality
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('nav-links');
+            const menuToggle = document.getElementById('mobile-menu-toggle');
+
+            navLinks.classList.toggle('mobile-menu-open');
+            menuToggle.classList.toggle('menu-active');
+
+            // Update button text
+            if (navLinks.classList.contains('mobile-menu-open')) {
+                menuToggle.innerHTML = `
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    CLOSE
+                `;
+            } else {
+                menuToggle.innerHTML = `
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    MENU
+                `;
+            }
+        }
+
+        function closeMobileMenu() {
+            const navLinks = document.getElementById('nav-links');
+            const menuToggle = document.getElementById('mobile-menu-toggle');
+
+            navLinks.classList.remove('mobile-menu-open');
+            menuToggle.classList.remove('menu-active');
+
+            menuToggle.innerHTML = `
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                MENU
+            `;
+        }
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function (event) {
+            const navBar = document.querySelector('.nav-bar');
+            const navLinks = document.getElementById('nav-links');
+
+            if (!navBar.contains(event.target) && navLinks.classList.contains('mobile-menu-open')) {
+                closeMobileMenu();
+            }
+        });
+
+        // Close mobile menu on window resize
+        window.addEventListener('resize', function () {
+            if (window.innerWidth > 768) {
+                closeMobileMenu();
+            }
+        });
 
         // Guestbook functionality
         function addGuestbookEntry(event) {
