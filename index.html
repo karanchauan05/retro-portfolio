@@ -61,8 +61,6 @@
                     <select id="theme-select" class="retro-select">
                         <option value="windows95">Windows 95</option>
                         <option value="matrix">Matrix</option>
-                        <option value="sunset">Sunset</option>
-                        <option value="terminal">Terminal</option>
                     </select>
                 </div>
                 <div class="music-control">
@@ -430,6 +428,9 @@
             </div>
         </div>
 
+        <!-- Matrix Rain Canvas -->
+        <canvas id="matrix-canvas" class="matrix-rain"></canvas>
+
         <!-- Hidden audio element for background music -->
         <audio id="background-music" loop volume="0.3">
             <!-- Mellow ambient track - soft piano and nature sounds -->
@@ -545,6 +546,13 @@
 
         function applyTheme(theme) {
             document.body.className = theme + '-theme';
+
+            // Control Matrix rain effect
+            if (theme === 'matrix') {
+                matrixRain.start();
+            } else {
+                matrixRain.stop();
+            }
         }
 
         // Music control
@@ -923,6 +931,87 @@
                 closeMobileMenu();
             }
         });
+
+        // Matrix Rain Effect
+        class MatrixRain {
+            constructor() {
+                this.canvas = document.getElementById('matrix-canvas');
+                this.ctx = this.canvas.getContext('2d');
+                this.characters = 'アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+                this.fontSize = 14;
+                this.columns = 0;
+                this.drops = [];
+                this.isActive = false;
+
+                this.resizeCanvas();
+                this.initDrops();
+
+                window.addEventListener('resize', () => {
+                    this.resizeCanvas();
+                    this.initDrops();
+                });
+            }
+
+            resizeCanvas() {
+                this.canvas.width = window.innerWidth;
+                this.canvas.height = window.innerHeight;
+                this.columns = Math.floor(this.canvas.width / this.fontSize);
+            }
+
+            initDrops() {
+                this.drops = [];
+                for (let i = 0; i < this.columns; i++) {
+                    this.drops[i] = Math.random() * -100;
+                }
+            }
+
+            draw() {
+                if (!this.isActive) return;
+
+                // Semi-transparent black background for trail effect
+                this.ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+                this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+
+                // Green text
+                this.ctx.fillStyle = '#00ff00';
+                this.ctx.font = `${this.fontSize}px monospace`;
+
+                for (let i = 0; i < this.drops.length; i++) {
+                    const char = this.characters[Math.floor(Math.random() * this.characters.length)];
+                    const x = i * this.fontSize;
+                    const y = this.drops[i] * this.fontSize;
+
+                    this.ctx.fillText(char, x, y);
+
+                    // Reset drop when it goes off screen
+                    if (y > this.canvas.height && Math.random() > 0.975) {
+                        this.drops[i] = 0;
+                    }
+
+                    this.drops[i]++;
+                }
+            }
+
+            start() {
+                this.isActive = true;
+                this.animate();
+            }
+
+            stop() {
+                this.isActive = false;
+                this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+            }
+
+            animate() {
+                if (this.isActive) {
+                    this.draw();
+                    setTimeout(() => this.animate(), 50);
+                }
+            }
+        }
+
+        // Initialize Matrix Rain
+        const matrixRain = new MatrixRain();
 
         // Guestbook functionality
         function addGuestbookEntry(event) {

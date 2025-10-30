@@ -977,58 +977,120 @@ New 90s Features Styles */
     padding: 5px;
 }
 
+/* Matrix Rain Canvas */
+.matrix-rain {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+    display: none;
+}
+
 /* Theme Variations */
 .matrix-theme {
     background: #000000;
     color: #00ff00;
+    position: relative;
+}
+
+.matrix-theme .matrix-rain {
+    display: block;
 }
 
 .matrix-theme .container {
-    background: #001100;
+    background: rgba(0, 17, 0, 0.9);
     border-color: #00ff00;
+    position: relative;
+    z-index: 1;
 }
 
 .matrix-theme .header {
-    background: linear-gradient(45deg, #003300, #006600);
+    background: linear-gradient(45deg, rgba(0, 51, 0, 0.9), rgba(0, 102, 0, 0.9));
+    border-color: #00ff00;
 }
 
 .matrix-theme .nav-bar {
-    background: #002200;
+    background: rgba(0, 34, 0, 0.9);
+    border-color: #00ff00;
 }
 
 .matrix-theme .nav-link {
-    background: #003300;
+    background: rgba(0, 51, 0, 0.8);
     color: #00ff00;
     border-color: #00ff00;
 }
 
-.sunset-theme {
-    background: linear-gradient(45deg, #ff6b35, #f7931e);
-}
-
-.sunset-theme .container {
-    background: #fff8e1;
-    border-color: #ff6b35;
-}
-
-.sunset-theme .header {
-    background: linear-gradient(45deg, #ff6b35, #f7931e, #ffcc02);
-}
-
-.terminal-theme {
-    background: #000000;
+.matrix-theme .nav-link:hover {
+    background: rgba(0, 85, 0, 0.9);
+    border-color: #00ff00;
     color: #ffffff;
-    font-family: "Courier New", monospace;
 }
 
-.terminal-theme .container {
-    background: #1a1a1a;
-    border-color: #ffffff;
+.matrix-theme .section {
+    background: rgba(0, 0, 0, 0.1);
 }
 
-.terminal-theme .header {
-    background: #333333;
+.matrix-theme .content-box {
+    background: rgba(0, 17, 0, 0.8);
+    border-color: #00ff00;
+    color: #00ff00;
 }
+
+.matrix-theme .section-title {
+    color: #00ff00;
+    text-shadow: 0 0 10px #00ff00;
+}
+
+.matrix-theme .skills-table {
+    background: rgba(0, 17, 0, 0.9);
+    border-color: #00ff00;
+}
+
+.matrix-theme .skills-table td {
+    border-color: #00ff00;
+    color: #00ff00;
+}
+
+.matrix-theme .skills-table td:first-child {
+    background: rgba(0, 51, 0, 0.8);
+}
+
+.matrix-theme .project-item {
+    background: rgba(0, 17, 0, 0.8);
+    border-color: #00ff00;
+    color: #00ff00;
+}
+
+.matrix-theme .controls-bar {
+    background: rgba(0, 34, 0, 0.9);
+    border-color: #00ff00;
+}
+
+.matrix-theme .retro-select,
+.matrix-theme .retro-button {
+    background: rgba(0, 51, 0, 0.8);
+    color: #00ff00;
+    border-color: #00ff00;
+}
+
+.matrix-theme .counter-display {
+    background: #000000;
+    color: #00ff00;
+    border-color: #00ff00;
+}
+
+.matrix-theme .footer {
+    background: rgba(0, 34, 0, 0.9);
+    border-color: #00ff00;
+    color: #00ff00;
+}
+
+
+
+
 
 /* Mobile Responsiveness */
 
@@ -1861,5 +1923,145 @@ p Navigation - hide mobile menu on larger screens */
     .submit-button,
     .reset-button {
         border-width: 1px;
+    }
+}/* Ma
+trix Theme - Additional Elements */
+.matrix-theme .contact-form {
+    background: rgba(0, 17, 0, 0.8);
+    border-color: #00ff00;
+}
+
+.matrix-theme .retro-input,
+.matrix-theme .retro-textarea {
+    background: rgba(0, 0, 0, 0.8);
+    color: #00ff00;
+    border-color: #00ff00;
+}
+
+.matrix-theme .retro-input:focus,
+.matrix-theme .retro-textarea:focus {
+    background: rgba(0, 34, 0, 0.9);
+    box-shadow: 0 0 10px #00ff00;
+}
+
+.matrix-theme .submit-button,
+.matrix-theme .reset-button {
+    background: linear-gradient(45deg, rgba(0, 51, 0, 0.8), rgba(0, 85, 0, 0.8));
+    color: #00ff00;
+    border-color: #00ff00;
+    text-shadow: 0 0 5px #00ff00;
+}
+
+.matrix-theme .submit-button:hover,
+.matrix-theme .reset-button:hover {
+    background: linear-gradient(45deg, rgba(0, 85, 0, 0.9), rgba(0, 119, 0, 0.9));
+    box-shadow: 0 0 15px #00ff00;
+}
+
+.matrix-theme .download-button {
+    background: linear-gradient(45deg, rgba(0, 85, 0, 0.8), rgba(0, 119, 0, 0.8));
+    color: #00ff00;
+    border-color: #00ff00;
+    text-shadow: 0 0 5px #00ff00;
+}
+
+.matrix-theme .download-button:hover {
+    background: linear-gradient(45deg, rgba(0, 119, 0, 0.9), rgba(0, 153, 0, 0.9));
+    box-shadow: 0 0 20px #00ff00;
+}
+
+.matrix-theme .award-item {
+    background: rgba(0, 17, 0, 0.8);
+    border-color: #00ff00;
+    color: #00ff00;
+}
+
+.matrix-theme .sitemap {
+    background: rgba(0, 17, 0, 0.8);
+    border-color: #00ff00;
+    color: #00ff00;
+}
+
+.matrix-theme .sitemap a {
+    color: #00ff00;
+}
+
+.matrix-theme .sitemap a:hover {
+    color: #ffffff;
+    text-shadow: 0 0 5px #00ff00;
+}
+
+.matrix-theme .compatibility-badges {
+    background: rgba(0, 17, 0, 0.8);
+    border-color: #00ff00;
+}
+
+.matrix-theme .badge-text {
+    color: #00ff00;
+}
+
+.matrix-theme .contact-info {
+    background: rgba(0, 51, 0, 0.8);
+    border-color: #00ff00;
+    color: #00ff00;
+}
+
+.matrix-theme .contact-link {
+    color: #00ff00;
+    text-shadow: 0 0 3px #00ff00;
+}
+
+.matrix-theme .contact-link:hover {
+    color: #ffffff;
+    background: rgba(0, 85, 0, 0.8);
+}
+
+/* Matrix theme mobile menu */
+.matrix-theme .mobile-menu-toggle {
+    background: rgba(0, 51, 0, 0.8);
+    color: #00ff00;
+    border-color: #00ff00;
+}
+
+.matrix-theme .nav-links {
+    background: rgba(0, 17, 0, 0.95);
+    border-color: #00ff00;
+}
+
+/* Matrix theme loading screen */
+.matrix-theme .loading-screen {
+    background: linear-gradient(45deg, #000000, #001100);
+}
+
+.matrix-theme .loading-container {
+    background: rgba(0, 17, 0, 0.9);
+    border-color: #00ff00;
+    color: #00ff00;
+}
+
+.matrix-theme .loading-bar {
+    background: linear-gradient(90deg, #00ff00, #00cc00);
+}
+
+/* Enhance Matrix rain for better performance on mobile */
+@media (max-width: 768px) {
+    .matrix-theme .matrix-rain {
+        opacity: 0.7;
+    }
+}
+
+/* Matrix theme animations */
+.matrix-theme .animated-title {
+    animation: matrix-glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes matrix-glow {
+    0% {
+        text-shadow: 3px 3px 6px #000000, 0 0 10px #00ff00;
+        transform: scale(1);
+    }
+    100% {
+        text-shadow: 3px 3px 6px #000000, 0 0 20px #00ff00, 0 0 30px #00ff00;
+        transform: scale(1.02);
     }
 }
