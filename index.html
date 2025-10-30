@@ -14,6 +14,7 @@
         window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
     </script>
     <script defer src="/_vercel/insights/script.js"></script>
+    <script defer src="/_vercel/insights/script.js"></script>
 </head>
 
 <body>
@@ -76,10 +77,6 @@
             <div class="hit-counter">
                 <span class="counter-label">Visitors:</span>
                 <span id="hit-count" class="counter-display">001337</span>
-            </div>
-            <div class="analytics-display">
-                <span class="analytics-label">📊 Analytics:</span>
-                <span class="analytics-status">ACTIVE</span>
             </div>
         </div>
 
@@ -403,7 +400,6 @@
                             <li>📄 <a href="#honors">Honors & Awards</a></li>
                             <li>📄 <a href="#resume">Resume Download</a></li>
                             <li>📄 <a href="#contact">Contact Form</a></li>
-                            <li>📊 Analytics Dashboard</li>
                         </ul>
                     </li>
                 </ul>
@@ -517,13 +513,113 @@
             initializeAnalytics();
         });
 
-        // Hit counter functionality
-        function initializeHitCounter() {
-            hitCount++;
-            localStorage.setItem('hitCount', hitCount.toString());
-            document.getElementById('hit-count').textContent = hitCount.toString().padStart(6, '0');
+        // Hit counter functionality with Vercel Analytics
+        async function initializeHitCounter() {
+            try {
+                // Try to fetch visitor count from Vercel Analytics
+                const vercelCount = await fetchVercelVisitorCount();
+                const totalCount = 111 + vercelCount;
 
-            // Animate counter
+                // Update display
+                document.getElementById('hit-count').textContent = totalCount.toString().padStart(6, '0');
+
+                // Animate counter
+                const counter = document.getElementById('hit-count');
+                counter.style.animation = 'counter-increment 0.5s ease';
+
+                // Store for offline use
+                localStorage.setItem('lastKnownCount', totalCount.toString());
+            } catch (error) {
+                console.log('Using fallback counter method');
+                // Fallback to local counter if Vercel API fails
+                initializeFallbackCounter();
+            }
+        }
+
+        async function fetchVercelVisitorCount() {
+            // Method 1: Try Vercel Analytics API
+            try {
+                // First, track this visit
+                const visitorId = getOrCreateVisitorId();
+                await fetch('/api/analytics/visitors', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        visitor_id: visitorId,
+                        timestamp: new Date().toISOString()
+                    })
+                });
+
+                // Then get the current count
+                const response = await fetch('/api/analytics/visitors');
+                if (response.ok) {
+                    const data = await response.json();
+                    return data.visitors || 0;
+                }
+            } catch (e) {
+                console.log('Vercel API not available, using fallback');
+            }
+
+            // Method 2: Use Vercel Web Analytics (if enabled)
+            if (window.va && window.va.track) {
+                window.va.track('page_view');
+            }
+
+            // Method 3: Enhanced local visitor tracking
+            return getSimpleVisitorCount();
+        }
+
+        async function getVercelStoredCount() {
+            // This would integrate with Vercel's analytics if properly configured
+            // For now, we'll use a combination of session and local storage
+            const sessionKey = 'vercel_session_' + new Date().toDateString();
+            const dailyVisitors = JSON.parse(localStorage.getItem('daily_visitors') || '{}');
+
+            // Count unique daily visitors
+            if (!sessionStorage.getItem(sessionKey)) {
+                sessionStorage.setItem(sessionKey, 'visited');
+                const today = new Date().toDateString();
+                dailyVisitors[today] = (dailyVisitors[today] || 0) + 1;
+                localStorage.setItem('daily_visitors', JSON.stringify(dailyVisitors));
+            }
+
+            // Calculate total from all days
+            return Object.values(dailyVisitors).reduce((sum, count) => sum + count, 0);
+        }
+
+        function getSimpleVisitorCount() {
+            // Enhanced visitor tracking
+            const visitorId = getOrCreateVisitorId();
+            const visitors = JSON.parse(localStorage.getItem('unique_visitors') || '[]');
+
+            if (!visitors.includes(visitorId)) {
+                visitors.push(visitorId);
+                localStorage.setItem('unique_visitors', JSON.stringify(visitors));
+            }
+
+            return visitors.length;
+        }
+
+        function getOrCreateVisitorId() {
+            let visitorId = localStorage.getItem('visitor_id');
+            if (!visitorId) {
+                visitorId = 'visitor_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+                localStorage.setItem('visitor_id', visitorId);
+            }
+            return visitorId;
+        }
+
+        function initializeFallbackCounter() {
+            // Original local counter as fallback
+            let localCount = parseInt(localStorage.getItem('hitCount') || '1337');
+            localCount++;
+            localStorage.setItem('hitCount', localCount.toString());
+
+            const totalCount = 111 + localCount;
+            document.getElementById('hit-count').textContent = totalCount.toString().padStart(6, '0');
+
             const counter = document.getElementById('hit-count');
             counter.style.animation = 'counter-increment 0.5s ease';
         }
