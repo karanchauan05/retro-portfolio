@@ -8,6 +8,12 @@
     <meta name="description"
         content="Karan Chauhan - Computer Science Engineering Student Portfolio. Projects, skills, and contact information.">
     <link rel="stylesheet" type="text/css" href="styles.css">
+
+    <!-- Vercel Web Analytics -->
+    <script>
+        window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
 </head>
 
 <body>
@@ -70,6 +76,10 @@
             <div class="hit-counter">
                 <span class="counter-label">Visitors:</span>
                 <span id="hit-count" class="counter-display">001337</span>
+            </div>
+            <div class="analytics-display">
+                <span class="analytics-label">📊 Analytics:</span>
+                <span class="analytics-status">ACTIVE</span>
             </div>
         </div>
 
@@ -393,6 +403,7 @@
                             <li>📄 <a href="#honors">Honors & Awards</a></li>
                             <li>📄 <a href="#resume">Resume Download</a></li>
                             <li>📄 <a href="#contact">Contact Form</a></li>
+                            <li>📊 Analytics Dashboard</li>
                         </ul>
                     </li>
                 </ul>
@@ -503,6 +514,7 @@
             initializeInteractiveEffects();
             initializeAccessibility();
             initializeContactForm();
+            initializeAnalytics();
         });
 
         // Hit counter functionality
@@ -1012,6 +1024,130 @@
 
         // Initialize Matrix Rain
         const matrixRain = new MatrixRain();
+
+        // Vercel Analytics - Custom Event Tracking
+        function trackEvent(eventName, properties = {}) {
+            if (typeof window.va !== 'undefined') {
+                window.va('track', eventName, properties);
+            }
+        }
+
+        // Track portfolio interactions
+        function initializeAnalytics() {
+            // Track theme changes
+            const themeSelect = document.getElementById('theme-select');
+            if (themeSelect) {
+                themeSelect.addEventListener('change', function () {
+                    trackEvent('Theme Changed', { theme: this.value });
+                });
+            }
+
+            // Track music toggle
+            const musicToggle = document.getElementById('music-toggle');
+            if (musicToggle) {
+                musicToggle.addEventListener('click', function () {
+                    trackEvent('Music Toggled', { action: musicPlaying ? 'stop' : 'play' });
+                });
+            }
+
+            // Track resume downloads
+            window.downloadResume = function () {
+                trackEvent('Resume Downloaded', { format: 'PDF' });
+
+                // Original download functionality
+                const link = document.createElement('a');
+                link.href = "Karan's Resume.pdf";
+                link.download = "Karan_Chauhan_Resume.pdf";
+                link.target = '_blank';
+
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+
+                alert('📄 Resume download started!\n\nDownloading: Karan_Chauhan_Resume.pdf');
+            };
+
+            // Track contact form submissions
+            const originalSubmitContactForm = window.submitContactForm;
+            window.submitContactForm = function (event) {
+                event.preventDefault();
+                const formData = new FormData(event.target);
+                const data = Object.fromEntries(formData);
+
+                trackEvent('Contact Form Submitted', {
+                    subject: data.subject,
+                    hasMessage: data.message.length > 0
+                });
+
+                // Call original function
+                originalSubmitContactForm(event);
+            };
+
+            // Track navigation clicks
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', function () {
+                    const section = this.getAttribute('href').replace('#', '');
+                    trackEvent('Navigation Click', { section: section });
+                });
+            });
+
+            // Track project link clicks
+            document.querySelectorAll('.project-link').forEach(link => {
+                link.addEventListener('click', function () {
+                    const projectName = this.closest('.project-item').querySelector('h3').textContent;
+                    trackEvent('Project Link Clicked', { project: projectName });
+                });
+            });
+
+            // Track social media clicks
+            document.querySelectorAll('.contact-link').forEach(link => {
+                link.addEventListener('click', function () {
+                    const linkText = this.textContent;
+                    const linkType = this.href.includes('github') ? 'GitHub' :
+                        this.href.includes('linkedin') ? 'LinkedIn' :
+                            this.href.includes('mailto') ? 'Email' :
+                                this.href.includes('wa.me') ? 'WhatsApp' : 'Other';
+                    trackEvent('Social Link Clicked', { type: linkType });
+                });
+            });
+
+            // Track time spent on page
+            let startTime = Date.now();
+            let timeTracked = false;
+
+            // Track when user leaves or after 30 seconds
+            const trackTimeSpent = () => {
+                if (!timeTracked) {
+                    const timeSpent = Math.round((Date.now() - startTime) / 1000);
+                    trackEvent('Time Spent', { seconds: timeSpent });
+                    timeTracked = true;
+                }
+            };
+
+            setTimeout(trackTimeSpent, 30000); // Track after 30 seconds
+            window.addEventListener('beforeunload', trackTimeSpent);
+
+            // Track mobile vs desktop usage
+            const isMobile = window.innerWidth <= 768;
+            trackEvent('Device Type', {
+                type: isMobile ? 'Mobile' : 'Desktop',
+                screenWidth: window.innerWidth,
+                screenHeight: window.innerHeight
+            });
+
+            // Track page load performance
+            window.addEventListener('load', function () {
+                setTimeout(() => {
+                    const perfData = performance.getEntriesByType('navigation')[0];
+                    if (perfData) {
+                        trackEvent('Page Performance', {
+                            loadTime: Math.round(perfData.loadEventEnd - perfData.loadEventStart),
+                            domContentLoaded: Math.round(perfData.domContentLoadedEventEnd - perfData.domContentLoadedEventStart)
+                        });
+                    }
+                }, 1000);
+            });
+        }
 
         // Guestbook functionality
         function addGuestbookEntry(event) {
